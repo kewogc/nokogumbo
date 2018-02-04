@@ -21,7 +21,9 @@ module Nokogiri
         string = reencode(string)
       end
 
-      Nokogumbo.parse(string.to_s, options[:max_parse_errors] || 0)
+      doc = Nokogumbo.parse(string.to_s, options[:max_parse_errors] || 0)
+      doc.encoding = 'UTF-8'
+      doc
     end
 
     # Fetch and parse a HTML document from the web, following redirects,
