@@ -22,7 +22,7 @@ module Nokogiri
       end
 
       doc = Nokogumbo.parse(string.to_s, options[:max_parse_errors] || 0)
-      doc.encoding = 'UTF-8'
+      doc.encoding = 'UTF-8' if doc.encoding.nil?
       doc
     end
 
